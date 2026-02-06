@@ -466,6 +466,12 @@
         .floating-theme-btn:hover { transform: scale(1.1); }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         
+        /* WhatsApp Sticky Button */
+        .whatsapp-btn { position: fixed; right: 20px; bottom: 80px; width: 55px; height: 55px; background: #25D366; border: none; border-radius: 50%; color: #ffffff; font-size: 28px; cursor: pointer; z-index: 999; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); transition: all 0.3s ease; text-decoration: none; }
+        .whatsapp-btn:hover { transform: scale(1.15) rotate(10deg); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7); }
+        .whatsapp-btn::before { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: #25D366; opacity: 0.3; animation: whatsappPulse 2s infinite; z-index: -1; }
+        @keyframes whatsappPulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(1.8); opacity: 0; } }
+        
         /* Light Mode - Comprehensive */
         body.light-mode { background: #f5f5f5; color: #1a1a2e; }
         body.light-mode .background { background: #f5f5f5; }
@@ -1180,5 +1186,10 @@
         document.querySelectorAll('a[href^="#"]').forEach(function(a) { a.addEventListener('click', function(e) { var t = document.querySelector(this.getAttribute('href')); if(t) { e.preventDefault(); t.scrollIntoView({behavior: 'smooth'}); toggleMobileMenu(); } }); });
         window.addEventListener('scroll', function() { var s = document.querySelectorAll('section[id]'); var sp = window.pageYOffset; s.forEach(function(s) { if(sp >= s.offsetTop - 200 && sp < s.offsetTop + s.offsetHeight - 200) { document.querySelectorAll('.nav-item').forEach(function(i) { i.classList.remove('active'); }); var a = document.querySelector('.nav-item a[href="#'+s.id+'"]'); if(a) a.parentElement.classList.add('active'); } }); });
     </script>
+    
+    <!-- WhatsApp Sticky Button -->
+    <a href="https://wa.me/919461211771" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
